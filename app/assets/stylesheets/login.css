@@ -1,0 +1,109 @@
+body {
+  /*background: url("bg.jpg") no-repeat;*/
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.login-block{
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin: 30px auto 0;
+  padding: 20px 40px;
+  width: 40%;
+}
+
+.logo-out{
+  display: block;
+  margin: 0 auto;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading, .form-bePartner-heading{
+  margin-bottom: 20px;
+  text-align: center;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.lk-forgotPassword{
+  display: block;
+  margin-bottom: 20px;
+}
+.lk-forgotPassword span{
+ margin-right: 7px; 
+}
+
+.bePartner-form h2{
+  font-size: 1.4em;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  text-align: center;
+
+}
+.bePartner-form .btn-bePartner{
+  text-align: center;
+}
+
+.btn-sendPassword{
+  margin-top: 40px;
+}
+
+
+.lk-backLogin{
+  display: block;
+  font-size: 1.1em;
+  margin-top: 20px;
+}
+.lk-backLogin span{
+  margin-right: 7px;
+}
+
+.form-bePartner-subheading{
+  font-size: 1.3em;
+  line-height: 1.5em;
+  margin-bottom: 30px;
+}
+.form-bePartner{
+  padding: 15px;
+  margin: 0 auto;
+}
+
+
+
+
+
+.form-calculateRequest{
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  padding: 20px 40px 30px;
+}
+.form-calculateRequest .btn-group{
+  display: block;
+  margin-top: 30px
+}
