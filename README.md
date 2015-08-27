@@ -7,12 +7,12 @@
 Dachshund is a project that provides control over all gems used in your organization, and you have access to some reports
 about your developers.
 
-# Why Dachshund?
+## Why Dachshund?
 
-# Why to use?
+## Why to use?
 
-# Benefits
+## Benefits
 
-# Installing and Deploying
+## Installing and Deploying
 
-# Contributing
+## Contributing
