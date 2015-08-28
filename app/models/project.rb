@@ -7,7 +7,7 @@ class Project < ActiveRecord::Base
   end
 
   def is_compliance?
-    report = NonComplianceProjects.new.verify_project self
+    report = ProjectVerification.new.verify! self
     name = report.keys[0]
     status = true
     report[name].each do |type|
