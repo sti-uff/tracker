@@ -1,7 +1,7 @@
 namespace :gemfile do
   namespace :import do
     # Import Gemfile and Commits of all projects in your Git Server
-    desc "Gemfile Analyzer | Import projects, commits and gems!"
+    desc "Tracking projects | Import projects, commits and gems!"
     task create: :environment do
       puts "The operation below can take some minutes depending on the number of Projects, Commits and Gems that
       are being used in your organization. Maybe it's time to make some coffee... (◕‿◕)".colorize(:light_blue)

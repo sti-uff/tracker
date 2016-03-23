@@ -7,14 +7,18 @@ class Project < ActiveRecord::Base
   end
 
   def is_compliance?
-    report = ProjectVerification.new.verify! self
-    name = report.keys[0]
-    status = true
-    report[name].each do |type|
-      status = false unless type.values.any?{|v| v.nil? || v.length == 0}
-      break
+    begin
+      report = ProjectVerification.new.verify! self
+      name = report.keys[0]
+      status = true
+      report[name].each do |type|
+        status = false unless type.values.any? { |v| v.nil? || v.length == 0 }
+        break
+      end
+      status
+    rescue Exception
+      false
     end
-    status
   end
 
 end

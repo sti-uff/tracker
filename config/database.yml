@@ -7,13 +7,13 @@ default: &default
 
 development:
   <<: *default
-  database: gemblocker_development
+  database: tracker_development
 #  socket: /tmp/mysql.sock
 
 test:
   <<: *default
-  database: gemblocker_test
+  database: tracker_test
 
 production:
   <<: *default
-  database: gemblocker_production
+  database: tracker_production

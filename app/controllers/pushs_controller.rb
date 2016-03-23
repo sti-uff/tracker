@@ -1,5 +1,6 @@
 class PushsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :create
+  skip_before_filter :authenticate_user!, :create
 
   def create
     @push = PushHook.new(params)

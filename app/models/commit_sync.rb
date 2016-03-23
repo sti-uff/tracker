@@ -5,11 +5,8 @@ class CommitSync
     return if commits.empty?
     commits.each do |commit|
       next if Commit.already_imported?(commit)
-      c = Commit.new
-      c.hash_id = commit["id"]
-      c.title = commit["title"]
-      c.author_name = commit["author_name"]
-      c.commit_created_at = commit["created_at"]
+      c = Commit.new(hash_id: commit["id"], title: commit["title"], author_name: commit["author_name"],
+                     commit_created_at: commit["created_at"])
       c.project_id = Project.where(gitproject_id: gitproject_id, server: server).first.id
       c.save!
     end

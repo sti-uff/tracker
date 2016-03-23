@@ -9,14 +9,15 @@ class PushHook
   def save!
     project_id = Project.where(gitproject_id: @git_project_id).take.try(:id) || create_project(@git_project_id)
     @commits.each do |commit|
+      next if Commit.find_by_hash_id commit[:id]
       c = Commit.create(author_name: commit[:author][:name],
                     author_email: commit[:author][:email],
                     project_id: project_id,
                     hash_id: commit[:id],
                     commit_created_at: commit[:timestamp],
                     title: commit[:message])
-      GemImporter.new(@git_project_id, c, :gitlab).import
       project = Project.find_by_id project_id
+      set_used_gems c
       set_compliance_status project
     end
   end
@@ -27,6 +28,10 @@ class PushHook
     hook_params = ProjectHookParser.new(params).to_param!
     project = Project.new(hook_params)
     project.id if project.save
+  end
+
+  def set_used_gems commit
+    GemImporter.new(@git_project_id, commit, :gitlab).import
   end
 
   def set_compliance_status project

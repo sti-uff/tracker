@@ -2,13 +2,13 @@
     <span class="glyphicon glyphicon-plus"></span> Add gem
 <% end %>
 
-
-<% unless @gemblockers.empty? %>
+<% if @gemblockers.any? %>
     <table class="table">
       <thead>
       <tr>
         <th>Gem</th>
         <th>Blocked Versions</th>
+        <th>Last Stable Version</th>
         <th>Type</th>
         <th></th>
       </tr>
@@ -18,6 +18,7 @@
           <tr>
             <td><%= blocker.gem %></td>
             <td><%= blocked_versions(blocker) %></td>
+            <td></td>
             <td><%= blocker.verification_type %></td>
             <td><%= link_to "", edit_gemblocker_path(blocker), class: "btn btn-success glyphicon glyphicon-pencil" %></td>
             <td><%= link_to "", gemblocker_path(blocker), :method => :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger glyphicon glyphicon-trash" %></td>
@@ -25,8 +26,4 @@
       <% end %>
       </tbody>
     </table>
-    <% else %>
-    <h3>Start blocking undesired gems and be as happy as the dog below!</h3>
-    <%= image_tag "happy-dog.jpg", width: 300, height: 300 %>
-
 <% end %>

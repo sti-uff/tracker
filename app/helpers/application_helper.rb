@@ -3,6 +3,7 @@ module ApplicationHelper
   def different_gems
     gems = []
     Project.all.each do |p|
+      next unless p.commits.any?
       gems << p.commits.last.used_gems.pluck(:name)
     end
     gems.flatten.uniq.count
