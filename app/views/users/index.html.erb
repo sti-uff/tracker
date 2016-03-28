@@ -1,0 +1,19 @@
+<table class="table">
+  <tr>
+    <td>Email</td>
+    <td>Last login</td>
+    <td colspan="2">Actions</td>
+  </tr>
+  <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.last_sign_in_at %></td>
+        <td>
+          <%= button_to '', class: 'btn btn-warning btn-circle' do %>
+              <i class="fa fa-times"></i>
+          <% end %>
+        </td>
+      </tr>
+  <% end %>
+
+</table>
