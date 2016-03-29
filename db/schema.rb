@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150825181406) do
+ActiveRecord::Schema.define(version: 20160329025646) do
 
   create_table "blockedversions", force: :cascade do |t|
     t.string   "number",        limit: 255
@@ -31,11 +31,36 @@ ActiveRecord::Schema.define(version: 20150825181406) do
     t.integer  "project_id",        limit: 4
   end
 
+  create_table "contact_notifications", force: :cascade do |t|
+    t.integer  "notification_id", limit: 4
+    t.integer  "contact_id",      limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.string   "description", limit: 255
+    t.string   "job_title",   limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "email",       limit: 255
+  end
+
   create_table "gemblockers", force: :cascade do |t|
     t.string   "gem",               limit: 255
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.string   "verification_type", limit: 255
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "project_id",        limit: 4
+    t.string   "name",              limit: 255
+    t.string   "email",             limit: 255
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "notification_type", limit: 255
   end
 
   create_table "projects", force: :cascade do |t|

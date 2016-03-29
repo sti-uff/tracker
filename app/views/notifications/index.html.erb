@@ -1,0 +1,24 @@
+<h4>Notification Center</h4>
+
+<%= link_to new_notification_path, class: "btn btn-primary" do %>
+    <span class="glyphicon glyphicon-plus"></span> Add notification contacts
+<% end %>
+
+<% if @notifications.any? %>
+    <table class="table">
+      <tr>
+        <th>Project</th>
+        <th>Notification Name</th>
+        <th>Notification Type</th>
+        <th>Contacts</th>
+      </tr>
+      <% @notifications.each do |notification| %>
+          <tr>
+            <td><%= notification.project.name %></td>
+            <td><%= notification.name %></td>
+            <td><%= notification.notification_type %></td>
+            <td><%= contacts_formatted(notification.contacts) %></td>
+          </tr>
+      <% end %>
+    </table>
+<% end %>

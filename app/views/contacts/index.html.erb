@@ -1,0 +1,26 @@
+<%= link_to new_contact_path, class: "btn btn-primary" do %>
+    <span class="glyphicon glyphicon-plus"></span> Add contact
+<% end %>
+
+<% if @contacts.any? %>
+    <h4>Registered Contacts</h4>
+
+    <table class="table">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Description</th>
+        <th>Job Title</th>
+      </tr>
+      <% @contacts.each do |contact| %>
+          <tr>
+            <td><%= contact.name %></td>
+            <td><%= contact.email %></td>
+            <td><%= contact.description %></td>
+            <td><%= contact.job_title %></td>
+          </tr>
+      <% end %>
+    </table>
+<% else %>
+    <h4>There is no contact registered</h4>
+<% end %>

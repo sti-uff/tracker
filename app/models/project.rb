@@ -1,5 +1,6 @@
 class Project < ActiveRecord::Base
   has_many :commits, dependent: :destroy
+  has_many :notifications
   accepts_nested_attributes_for :commits
 
   def self.already_imported?(id, server)

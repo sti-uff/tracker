@@ -1,0 +1,39 @@
+<div class="form-horizontal">
+  <%= form_for @notification do |f| %>
+      <div class="form-group">
+        <%= f.label :name, class: "col-sm-1 control-label" %>
+        <div class="col-sm-2">
+          <%= f.text_field :name, placeholder: "Notification name", class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :project, class: "col-sm-1 control-label" %>
+        <div class="col-sm-2">
+          <%= f.select :project_id, Project.all.map { |project| [project.name, project.id] }, {}, {class: "form-control"} %>
+        </div>
+      </div>
+
+      <div id="#contact_notification">
+        <%= f.fields_for :contact_notifications do |contact_notification| %>
+            <%= render "contact_notification_fields", f: contact_notification %>
+        <% end %>
+        <div class="links">
+          <%= link_to_add_association 'add contact', f, :contact_notifications %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :notification_type, class: "col-sm-1 control-label" %>
+        <div class="col-sm-2">
+          <%= f.select :notification_type, Notification::TYPES, {}, {class: "form-control"} %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-1 col-sm-2">
+          <%= f.submit "Save", class: "btn btn-default" %>
+        </div>
+      </div>
+  <% end %>
+</div>

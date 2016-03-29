@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   root 'application#index'
 
   resources :projects
+  resources :notifications
+  resources :contacts
   resources :pushs
   resources :users
   resources :commits
