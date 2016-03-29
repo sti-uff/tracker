@@ -7,6 +7,10 @@ class NotificationsController < ApplicationController
     @notification = Notification.new
     @notification.contact_notifications.build
   end
+  
+  def edit
+    @notification = Notification.find(params[:id])
+  end
 
   def create
     @notification = Notification.new(notification_params)
@@ -16,6 +20,16 @@ class NotificationsController < ApplicationController
       render :new, error: "Something went wrong, please try again."
     end
   end
+
+  def destroy
+    @notification = Notification.find(params[:id])
+    if @notification.delete
+      redirect_to notifications_path, notice: "Notification deleted with success!"
+    else
+      redirect_to notifications_path, error: "Something went wrong, please try again."
+    end
+  end
+
 
   private
   def notification_params

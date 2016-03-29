@@ -11,6 +11,7 @@
         <th>Notification Name</th>
         <th>Notification Type</th>
         <th>Contacts</th>
+        <th colspan="2">Actions</th>
       </tr>
       <% @notifications.each do |notification| %>
           <tr>
@@ -18,6 +19,16 @@
             <td><%= notification.name %></td>
             <td><%= notification.notification_type %></td>
             <td><%= contacts_formatted(notification.contacts) %></td>
+            <td>
+              <%= link_to edit_notification_path(notification), class: 'btn btn-warning btn-circle' do %>
+                  <i class="fa fa-pencil"></i>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to notification_path(notification), :method => :delete, class: 'btn btn-danger btn-circle' do %>
+                  <i class="fa fa-times"></i>
+              <% end %>
+            </td>
           </tr>
       <% end %>
     </table>
